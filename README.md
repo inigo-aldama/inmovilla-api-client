@@ -1,11 +1,13 @@
 
-# Inmovilla API Client
+# Inmovilla API Client (Unofficial)
 
 [![Latest Version](https://img.shields.io/badge/version-1.0.0-blue)]()
 [![PHP](https://img.shields.io/badge/php-%5E7.4%20%7C%7C%20%5E8.0-blue)]()
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 `inmovilla-api-client` is a PHP library that provides an interface for interacting with the Inmovilla real estate API. It simplifies requests, pagination, and data handling, allowing developers to focus on building applications.
+
+> **Note:** This project is not affiliated with, endorsed by, or maintained by Inmovilla.
 
 ---
 

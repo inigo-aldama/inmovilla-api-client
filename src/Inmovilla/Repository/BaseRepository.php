@@ -3,14 +3,30 @@
 namespace Inmovilla\Repository;
 
 use Inmovilla\ApiClient\ApiClientInterface;
+use Inmovilla\ApiClient\Request;
+use Inmovilla\ApiClient\RequestBatch;
 
 abstract class BaseRepository
 {
     protected ApiClientInterface $client;
+    protected RequestBatch $requestBatch;
+
 
     public function __construct(ApiClientInterface $client)
     {
         $this->client = $client;
+        $this->requestBatch = new RequestBatch();
+    }
+    protected function addRequest(string $type, int $startPosition, int $numElements, string $where = '', string $order = ''): void
+    {
+        $this->requestBatch->addRequest(new Request($type, $startPosition, $numElements, $where, $order));
+    }
+
+    protected function sendRequests(): array
+    {
+        $response = $this->client->sendRequest($this->requestBatch);
+        $this->requestBatch = new RequestBatch(); // Reset batch after sending
+        return $response;
     }
 
     /**

@@ -8,8 +8,9 @@ class CiudadRepository extends BaseRepository
 {
     public function findAll(int $startPosition = 1, int $numElements = 100, string $order = ''): PaginacionCiudadesDTO
     {
-        $this->client->addRequest(PaginacionCiudadesDTO::ARRAY_DATA_KEY, $startPosition, $numElements,'', $order);
-        return PaginacionCiudadesDTO::fromArray($this->client->sendRequest());
+        $this->addRequest(PaginacionCiudadesDTO::ARRAY_DATA_KEY, $startPosition, $numElements,'', $order);
+        $response = $this->sendRequests();
+        return PaginacionCiudadesDTO::fromArray($response);
     }
 
 }

@@ -118,8 +118,8 @@ class CustomPropertyRepository extends PropiedadRepository
     public function findWithElevator(int $startPosition = 1, int $numElements = 100, string $order = 'precioinmo, precioalq'): PaginacionPropiedadesDTO
     {
         $where = $this->buildWhereClause(['ascensor' => 1]);
-        $this->client->addRequest(PaginacionPropiedadesDTO::ARRAY_DATA_KEY, $startPosition, $numElements, $where, $order);
-        return PaginacionPropiedadesDTO::fromArray($this->client->sendRequest());
+        $response = $this->addRequest(PaginacionPropiedadesDTO::ARRAY_DATA_KEY, $startPosition, $numElements, $where, $order);
+        return PaginacionPropiedadesDTO::fromArray($response);
     }
 }
 ```
@@ -154,8 +154,10 @@ $requestFactory = new HttpFactory();
 
 $client = ApiClientFactory::createFromConfig($config, $httpClient, $requestFactory);
 
-$client->addRequest('properties', 1, 100, 'ascensor=1', 'precioinmo, precioalq');
-$response = $client->sendRequest();
+$request = new Request('properties', 1, 100, 'ascensor=1', 'precioinmo, precioalq');
+$requestBatch = new RequestBatch();
+$requestBatch->addRequest($request);
+$response = $client->sendRequest($requestBatch);
 
 foreach ($response['properties'] as $property) {
     echo "Property: Ref=" . $property['ref'] . PHP_EOL;

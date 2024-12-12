@@ -5,7 +5,6 @@ namespace Inmovilla\ApiClient;
 use GuzzleHttp\Psr7\Utils;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
-use Inmovilla\ApiClient\Exception\ApiClientException;
 use Inmovilla\ApiClient\Exception\InvalidApiResponseException;
 use Inmovilla\ApiClient\Exception\HttpRequestException;
 use Throwable;
@@ -17,10 +16,8 @@ class ApiClient implements ApiClientInterface
     private string $agency;
     private string $password;
     private int $language;
-    protected array $requests = [];
     private ClientInterface $httpClient;
     private RequestFactoryInterface $requestFactory;
-    private bool $responseAsInsecureExternalPHPCodeToExecuteInMyServer = false;
 
     public function __construct(
         string                  $agency,
@@ -41,44 +38,21 @@ class ApiClient implements ApiClientInterface
         $this->requestFactory = $requestFactory;
     }
 
-    /**
-     * Add a new request to the batch.
-     *
-     * @param string $type The type of request (e.g., 'paginacion', 'ficha', etc.)
-     * @param int $startPosition The starting position for pagination.
-     * @param int $numElements The number of elements to retrieve.
-     * @param string $where Optional WHERE clause for filtering.
-     * @param string $order Optional ORDER BY clause for sorting.
-     */
-    public function addRequest(string $type, int $startPosition, int $numElements, string $where = "", string $order = ""): void
+    public function sendRequest(RequestBatch $batch): array
     {
-        $this->requests[] = [
-            'type' => $type,
-            'startPosition' => $startPosition,
-            'numElements' => $numElements,
-            'where' => $where,
-            'order' => $order,
-        ];
-    }
-
-    public function sendRequest(): array
-    {
-        if ($this->responseAsInsecureExternalPHPCodeToExecuteInMyServer) {
-            throw new ApiClientException("Executing insecure external PHP code is disabled.");
-        }
-        $params = $this->buildParams();
-        $responseJson = $this->makeRequest("$params");
+        $params = $this->buildParams($batch);
+        $responseJson = $this->makeRequest($params);
         $response = json_decode($responseJson, true);
         if (json_last_error() !== JSON_ERROR_NONE) {
             throw new InvalidApiResponseException(
                 "Invalid JSON response: " . json_last_error_msg() . ". Response: " . $responseJson
             );
         }
-        $this->clearRequests();
+
         return $response;
     }
 
-    protected function buildParams(): string
+    private function buildParams(RequestBatch $batch): string
     {
 
         $paramString = implode(';', [
@@ -88,13 +62,13 @@ class ApiClient implements ApiClientInterface
             'lostipos'
         ]);
 
-        foreach ($this->requests as $request) {
+        foreach ($batch->getRequests() as $request) {
             $requestData = [
-                $request['type'],
-                $request['startPosition'],
-                $request['numElements'],
-                $request['where'],
-                $request['order']
+                $request->type,
+                $request->startPosition,
+                $request->numElements,
+                $request->where,
+                $request->order
             ];
 
             $paramString .= ';' . implode(';', $requestData);
@@ -103,24 +77,21 @@ class ApiClient implements ApiClientInterface
         return http_build_query([
             'param' => $paramString,
             'elDominio' => $this->domain,
-            'json' => $this->responseAsInsecureExternalPHPCodeToExecuteInMyServer?0:1,
+            'json' => 1, // Mantén este valor seguro
             'ia' => $this->getClientIp()
         ]);
     }
 
-    protected function makeRequest(string $postFields): string
+    private function makeRequest(string $postFields): string
     {
-        // Crear la solicitud
         $request = $this->requestFactory->createRequest('POST', $this->apiUrl)
             ->withHeader('Accept', 'application/json')
             ->withHeader('Content-Type', 'application/x-www-form-urlencoded')
             ->withBody(Utils::streamFor($postFields));
 
         try {
-            // Enviar la solicitud
             $response = $this->httpClient->sendRequest($request);
 
-            // Verificar el código de estado HTTP
             if ($response->getStatusCode() !== 200) {
                 throw new HttpRequestException(
                     "HTTP Error: " . $response->getStatusCode() .
@@ -134,7 +105,7 @@ class ApiClient implements ApiClientInterface
         }
     }
 
-    protected function getClientIp(): string
+    private function getClientIp(): string
     {
         $proxyHeaders = [
             'HTTP_CLIENT_IP',
@@ -160,8 +131,4 @@ class ApiClient implements ApiClientInterface
         return $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
     }
 
-    private function clearRequests(): void
-    {
-        $this->requests = [];
-    }
 }

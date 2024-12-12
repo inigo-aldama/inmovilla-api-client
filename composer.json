@@ -1,0 +1,59 @@
+{
+  "name": "inigoaldama/inmovilla-api-client",
+  "description": "A PHP library to interact with the Inmovilla API",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Iñigo Aldama",
+      "email": "inigoaldama@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.4 || ^8.0",
+    "ext-json": "*",
+    "ext-curl": "*",
+    "guzzlehttp/guzzle": "^7.9",
+    "php-http/discovery": "^1.20",
+    "php-http/message": "^1.16"
+  },
+  "autoload": {
+    "psr-4": {
+      "Inmovilla\\": "src/Inmovilla/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Inmovilla\\Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5",
+    "friendsofphp/php-cs-fixer": "^3.0",
+    "phpstan/phpstan": "^1.10"
+  },
+  "scripts": {
+    "test": "phpunit --testdox",
+    "fix": "php-cs-fixer fix",
+    "analyze": "phpstan analyse"
+  },
+  "config": {
+    "platform": {
+      "php": "7.4"
+    },
+    "allow-plugins": {
+      "php-http/discovery": true
+    }
+  },
+  "keywords": [
+    "inmovilla",
+    "api-client",
+    "real estate",
+    "php"
+  ],
+  "homepage": "https://github.com/inigoaldama/inmovilla-api-client",
+  "support": {
+    "issues": "https://github.com/inigoaldama/inmovilla-api-client/issues",
+    "source": "https://github.com/inigoaldama/inmovilla-api-client"
+  }
+}

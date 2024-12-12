@@ -1,5 +1,5 @@
 {
-  "name": "inigoaldama/inmovilla-api-client",
+  "name": "inigo-aldama/inmovilla-api-client",
   "description": "A PHP library to interact with the Inmovilla API",
   "type": "library",
   "license": "MIT",
@@ -51,9 +51,9 @@
     "real estate",
     "php"
   ],
-  "homepage": "https://github.com/inigoaldama/inmovilla-api-client",
+  "homepage": "https://github.com/inigo-aldama/inmovilla-api-client",
   "support": {
-    "issues": "https://github.com/inigoaldama/inmovilla-api-client/issues",
-    "source": "https://github.com/inigoaldama/inmovilla-api-client"
+    "issues": "https://github.com/inigo-aldama/inmovilla-api-client/issues",
+    "source": "https://github.com/inigo-aldama/inmovilla-api-client"
   }
 }

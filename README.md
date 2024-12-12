@@ -33,7 +33,7 @@
 
 Install the package using Composer:
 ```bash
-composer require inigoaldama/inmovilla-api-client
+composer require inigo-aldama/inmovilla-api-client
 ```
 
 ---
@@ -213,4 +213,4 @@ This project is licensed under the [MIT License](LICENSE).
 ## Credits
 
 - **Author**: Iñigo Aldama Gómez
-- **Repository**: [inmovilla-api-client](https://github.com/inigoaldama/inmovilla-api-client)
+- **Repository**: [inmovilla-api-client](https://github.com/inigo-aldama/inmovilla-api-client)

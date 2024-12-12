@@ -24,7 +24,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Inmovilla\\Tests\\": "tests/"
+      "Inmovilla\\Tests\\": "tests/Inmovilla/"
     }
   },
   "require-dev": {
@@ -33,7 +33,7 @@
     "phpstan/phpstan": "^1.10"
   },
   "scripts": {
-    "test": "phpunit --testdox",
+    "test": "phpunit --testdox tests",
     "fix": "php-cs-fixer fix",
     "analyze": "phpstan analyse"
   },

@@ -11,7 +11,7 @@ class PaginationDTO
 
     public function __construct(array $data = [])
     {
-        foreach (array_keys(get_object_vars($this)) as $key) {
+        foreach (array_keys(get_class_vars(static::class)) as $key) {
             if (!array_key_exists($key, $data)) {
                 throw new InvalidArgumentException("Missing required key '{$key}' in data array.");
             }

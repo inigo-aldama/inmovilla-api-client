@@ -7,102 +7,102 @@ class PropiedadFichaDTO extends AbstractDTO
 {
     public const ARRAY_DATA_KEY = 'ficha';
 
-    public ?string $cod_ofer;
-    public ?int $numfotos;
-    public ?int $keyacci;
-    public ?int $fotoletra;
-    public ?int $numagencia;
-    public ?int $numsucursal;
-    public ?int $codaccion;
-    public ?string $acciones;
-    public ?string $ref;
-    public ?float $latitud;
-    public ?float $altitud;
-    public ?string $tipomensual;
-    public ?float $precioinmo;
-    public ?string $nbtipo;
-    public ?int $keygrupo;
-    public ?string $ciudad;
-    public ?string $zona;
-    public ?string $energialetra;
-    public ?int $energiarecibido;
-    public ?string $emisionesletra;
-    public ?string $nbconservacion;
-    public ?int $key_loca;
-    public ?int $key_tipo;
-    public ?string $nborientacion;
-    public ?int $banyos;
-    public ?int $planta;
-    public ?int $estadoficha;
-    public ?float $m_uties;
-    public ?float $m_cons;
-    public ?float $m_terraza;
-    public ?int $gastos_com;
-    public ?int $keyprov;
-    public ?string $provincia;
-    public ?string $pais;
-    public ?string $comunidad;
-    public ?int $keyagente;
-    public ?int $antiguedad;
-    public ?string $altura;
-    public ?int $electro;
-    public ?int $cocina_inde;
-    public ?int $keycalefa;
-    public ?int $keyagua;
-    public ?int $keycalle;
-    public ?int $primera_line;
-    public ?int $keyori;
-    public ?int $keycarpin;
-    public ?int $keycarpinext;
-    public ?int $keysuelo;
-    public ?int $keyvista;
-    public ?string $zonaauxiliar;
-    public ?int $x_entorno;
-    public ?string $tgascom;
-    public ?string $agencia;
-    public ?string $web;
-    public ?string $emailagencia;
-    public ?string $telefono;
-    public ?string $email;
-    public ?int $keyfachada;
-    public ?int $keyelectricidad;
-    public ?int $urbanizacion;
-    public ?int $terraza;
-    public ?int $ascensor;
-    public ?int $calefaccion;
-    public ?int $aire_con;
-    public ?int $video_port;
-    public ?int $piscina_com;
-    public ?int $luz;
-    public ?int $agua;
-    public ?int $tv;
-    public ?int $todoext;
-    public ?int $jardin;
-    public ?int $adaptadominus;
-    public ?int $luminoso;
-    public ?int $vistasdespejadas;
-    public ?string $cp;
-    public ?string $fechacreacion;
-    public ?string $fechaactualizacion;
-    public ?int $vercalle;
-    public ?int $srvfotos;
-    public ?int $soysrv;
-    public ?int $tipotour;
-    public ?string $euribor;
-    public ?string $nbcarpinext;
-    public ?string $nbsuelo;
-    public ?string $nbcarpin;
-    public ?string $nbtodoext;
-    public ?string $nbvista;
-    public ?string $nbcalefa;
-    public ?string $nbagua;
-    public ?string $nbcocina_inde;
-    public ?string $nbelectro;
-    public ?string $nbfachada;
-    public ?string $nb_periodo_gascom;
-    public ?string $foto;
-    public ?int $video;
-    public ?int $tourvirtual;
+    public ?string $cod_ofer = null;
+    public ?int $numfotos = null;
+    public ?int $keyacci = null;
+    public ?int $fotoletra = null;
+    public ?int $numagencia = null;
+    public ?int $numsucursal = null;
+    public ?int $codaccion = null; // El texto sale en "$acciones":   1 => venta, 6 => Transfer and Rent
+    public ?string $acciones = null;
+    public ?string $ref = null;
+    public ?float $latitud = null;
+    public ?float $altitud = null;
+    public ?string $tipomensual = null;
+    public ?float $precioinmo = null;
+    public ?string $nbtipo = null;
+    public ?int $keygrupo = null;
+    public ?string $ciudad = null;
+    public ?string $zona = null;
+    public ?string $energialetra = null;
+    public ?int $energiarecibido = null;
+    public ?string $emisionesletra = null;
+    public ?string $nbconservacion = null;
+    public ?int $key_loca = null;
+    public ?int $key_tipo = null;
+    public ?string $nborientacion = null;
+    public ?int $banyos = null;
+    public ?int $planta = null;
+    public ?int $estadoficha = null;
+    public ?float $m_uties = null;
+    public ?float $m_cons = null;
+    public ?float $m_terraza = null;
+    public ?int $gastos_com = null;
+    public ?int $keyprov = null;
+    public ?string $provincia = null;
+    public ?string $pais = null;
+    public ?string $comunidad = null;
+    public ?int $keyagente = null;
+    public ?int $antiguedad = null;
+    public ?string $altura = null;
+    public ?int $electro = null;
+    public ?int $cocina_inde = null;
+    public ?int $keycalefa = null;
+    public ?int $keyagua = null;
+    public ?int $keycalle = null;
+    public ?int $primera_line = null;
+    public ?int $keyori = null;
+    public ?int $keycarpin = null;
+    public ?int $keycarpinext = null;
+    public ?int $keysuelo = null;
+    public ?int $keyvista = null;
+    public ?string $zonaauxiliar = null;
+    public ?int $x_entorno = null;
+    public ?string $tgascom = null;
+    public ?string $agencia = null;
+    public ?string $web = null;
+    public ?string $emailagencia = null;
+    public ?string $telefono = null;
+    public ?string $email = null;
+    public ?int $keyfachada = null;
+    public ?int $keyelectricidad = null;
+    public ?int $urbanizacion = null;
+    public ?int $terraza = null;
+    public ?int $ascensor = null;
+    public ?int $calefaccion = null;
+    public ?int $aire_con = null;
+    public ?int $video_port = null;
+    public ?int $piscina_com = null;
+    public ?int $luz = null;
+    public ?int $agua = null;
+    public ?int $tv = null;
+    public ?int $todoext = null;
+    public ?int $jardin = null;
+    public ?int $adaptadominus = null;
+    public ?int $luminoso = null;
+    public ?int $vistasdespejadas = null;
+    public ?string $cp = null;
+    public ?string $fechacreacion = null;
+    public ?string $fechaactualizacion = null;
+    public ?int $vercalle = null;
+    public ?int $srvfotos = null;
+    public ?int $soysrv = null;
+    public ?int $tipotour = null;
+    public ?string $euribor = null;
+    public ?string $nbcarpinext = null;
+    public ?string $nbsuelo = null;
+    public ?string $nbcarpin = null;
+    public ?string $nbtodoext = null;
+    public ?string $nbvista = null;
+    public ?string $nbcalefa = null;
+    public ?string $nbagua = null;
+    public ?string $nbcocina_inde = null;
+    public ?string $nbelectro = null;
+    public ?string $nbfachada = null;
+    public ?string $nb_periodo_gascom = null;
+    public ?string $foto = null;
+    public ?int $video = null;
+    public ?int $tourvirtual = null;
     public string $refcertificado;
     public float $emisionesvalor;
     public float $energiavalor;
@@ -123,15 +123,15 @@ class PropiedadFichaDTO extends AbstractDTO
     public int $muebles;
     public int $piscina_prop;
     public int $habitaciones;
-    public int $total_hab;
+    public ?int $total_hab = null;
     public int $sumaseos;
     public string $repercusion;
     public int $exclu;
-    public int $parking;
+    public ?int $parking = null;
     public int $distmar;
     public int $precioalq;
     public int $eninternet;
-    public int $destacado;
+    public ?int $destacado = null;
     public int $habdobles;
     public int $destestrella;
     public int $opcioncompra;
@@ -150,14 +150,14 @@ class PropiedadFichaDTO extends AbstractDTO
     public int $x_personal;
     public int $mascotas;
     public int $aconsultar;
-    public int $outlet;
+    public ?int $outlet = null;
     public int $aseos;
     public int $tour_virtual;
     public string $nombreagente;
     public string $apellidosagente;
     public string $emailagente;
     public int $telefono1agente;
-    public ?int $telefono2agente; // Puede ser null si no está presente
+    public ?int $telefono2agente = null; // Puede ser null si no está presente
     public string $fotoagente;
 
     public string $ibi;
@@ -217,10 +217,27 @@ class PropiedadFichaDTO extends AbstractDTO
     public int $gimnasio;
     public int $riegoauto;
 
+    public ?int $buardilla;
+    public ?int $sotano;
+    public ?int $keytecho; // 3
+    public ?int $m_pb; //50;
+    public ?int $mtfachada; // 16
+    public ?int $m_patio; // 40
+    public ?int $sauna; // 1
+    public ?int $bar; // 1
+    public ?int $lavanderia; // 1
 
+    public ?int $preinstaacc; // 1
+    public ?int $depoagua; // 1
 
+    public ?int $gasciudad; // 1
+    public ?int $puertasauto; // 1
+    public ?int $vivadaptada; // 1
+    public ?int $m_sotano; // 145
 
-
+    public ?int $ojobuey; // 1
+    public ?int $habjuegos; // 1
+    //
     /** @var string[]  */
     public array $fotos = [];
     /** @var string[]  */

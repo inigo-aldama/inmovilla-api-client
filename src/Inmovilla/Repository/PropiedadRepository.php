@@ -7,6 +7,19 @@ use Inmovilla\DTO\Pagination\PaginacionPropiedadesDTO;
 
 class PropiedadRepository extends BaseRepository
 {
+    public function findLastUpdated(
+        \DateTime $lastUpdated,
+        int $startPosition = 1,
+        int $numElements = 100,
+        string $order = ''
+    ): PaginacionPropiedadesDTO {
+        $ultimaComprobacion = $lastUpdated->format('Y-m-d H:i:s');
+        $where = "ofertas.fechaact > '$ultimaComprobacion'";
+        $this->addRequest(PaginacionPropiedadesDTO::ARRAY_DATA_KEY, $startPosition, $numElements, $where, $order);
+        $response = $this->sendRequests();
+        return PaginacionPropiedadesDTO::fromArray($response);
+    }
+
     public function findByCity(int $cod_ciudad, int $startPosition = 1, int $numElements = 100, string $order = ''): PaginacionPropiedadesDTO
     {
         $where = $this->buildWhereClause(['cod_ciu' => $cod_ciudad]);

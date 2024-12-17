@@ -36,7 +36,7 @@ class PropiedadDTO extends AbstractDTO implements PaginableDTOInterface
     public int $habitaciones;
     public int $total_hab;
     public int $sumaseos;
-    public float $repercusion;
+    public string $repercusion;
     public int $exclu;
     public int $parking;
     public int $todoext;

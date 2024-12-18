@@ -26,16 +26,16 @@ class ApiClientConfig
 
     public static function fromArray(array $config): self
     {
-        if (!isset($config['AGENCY'], $config['PASSWORD'], $config['LANGUAGE'], $config['API_URL'], $config['DOMAIN'])) {
+        if (!isset($config['agency'], $config['password'], $config['language'], $config['api_url'], $config['domain'])) {
             throw new InvalidArgumentException("Missing required parameters in the configuration.");
         }
 
         return new self(
-            $config['AGENCY'],
-            $config['PASSWORD'],
-            (int)$config['LANGUAGE'],
-            $config['API_URL'],
-            $config['DOMAIN']
+            $config['agency'],
+            $config['password'],
+            (int) $config['language'],
+            $config['api_url'],
+            $config['domain']
         );
     }
 

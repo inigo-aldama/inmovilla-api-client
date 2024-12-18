@@ -14,11 +14,11 @@ class ApiClientFactoryTest extends TestCase
     public function testCreateFromConfig(): void
     {
         $config = ApiClientConfig::fromArray([
-            'AGENCY' => 'test-agency',
-            'PASSWORD' => 'test-password',
-            'API_URL' => 'https://api.test.com/v1',
-            'DOMAIN' => 'test-domain',
-            'LANGUAGE' => 1,
+            'agency' => 'test-agency',
+            'password' => 'test-password',
+            'api_url' => 'https://api.test.com/v1',
+            'domain' => 'test-domain',
+            'language' => 1,
         ]);
 
         $httpClient = new GuzzleClient();

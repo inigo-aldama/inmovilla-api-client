@@ -94,7 +94,7 @@ foreach ($cities->items as $city) {
         $properties = $propertyRepository->findByZone($zone->cod_zona);
 
         foreach ($properties->items as $property) {
-            $details = $propertyDetailsRepository->findByCodOffer($property->cod_ofer);
+            $details = $propertyDetailsRepository->findOneByCodOffer($property->cod_ofer);
         }
     }
 }

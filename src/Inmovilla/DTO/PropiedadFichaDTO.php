@@ -235,6 +235,8 @@ class PropiedadFichaDTO extends AbstractDTO
     public ?int $vivadaptada; // 1
     public ?int $m_sotano; // 145
 
+    public ?int $tipovpo; // 6
+
     public ?int $ojobuey; // 1
     public ?int $habjuegos; // 1
     //

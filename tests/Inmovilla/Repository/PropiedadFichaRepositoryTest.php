@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class PropiedadFichaRepositoryTest extends TestCase
 {
-    public function testFindByCodOffer(): void
+    public function testOneFindByCodOffer(): void
     {
         $mockClient = $this->createMock(ApiClient::class);
         $mockClient->expects($this->once())
@@ -29,7 +29,7 @@ class PropiedadFichaRepositoryTest extends TestCase
 
         $repository = new PropiedadFichaRepository($mockClient);
 
-        $propertyDetails = $repository->findByCodOffer(1);
+        $propertyDetails = $repository->findOneByCodOffer(1);
 
         $this->assertEquals(1, $propertyDetails->cod_ofer);
         $this->assertEquals('REF001', $propertyDetails->ref);

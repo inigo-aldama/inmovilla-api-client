@@ -23,7 +23,7 @@ abstract class AbstractDTO implements DTOInterface, InitializableFromArrayInterf
                 $instance->{$key} = $value;
             } else {
                 // throw new InvalidArgumentException("Unknown property '{$key}' for class " . static::class);
-                echo "Property '$key' with value '$value' does not exist in class '" . get_class($instance) . "'." . PHP_EOL;
+                echo "[warning] Property '$key' with value '$value' does not exist in class '" . get_class($instance) . "'." . PHP_EOL;
                 $instance->{$key} = $value;
             }
         }
@@ -32,7 +32,7 @@ abstract class AbstractDTO implements DTOInterface, InitializableFromArrayInterf
 
     protected function validateInputData(array $data): void
     {
-        // Implementación vacía por defecto, las subclases pueden sobrescribirlo
+        // Default implementation, subclasses can override.
     }
 
     public function toArray(): array
